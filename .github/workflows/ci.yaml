@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: listendev/action@v0.10
         with:
-          jwt: ${{ secrets.LS }}
+          jwt: ${{ secrets.LSTN }}
           ci: only
 
       - uses: actions/checkout@v4
