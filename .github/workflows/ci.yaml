@@ -47,6 +47,11 @@ jobs:
         os: [ubuntu-latest]
         python-version: ["3.11"]
     steps:
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only
+
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:

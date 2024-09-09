@@ -18,6 +18,10 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     steps:
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only 
       - name: Checkout code
         uses: actions/checkout@v4
         with:
