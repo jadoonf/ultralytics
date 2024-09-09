@@ -47,10 +47,7 @@ jobs:
         os: [ubuntu-latest]
         python-version: ["3.11"]
     steps:
-      - uses: listendev/action@v0.10
-        with:
-          jwt: ${{ secrets.LSTN }}
-          ci: only
+
 
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -66,6 +63,12 @@ jobs:
         run: |
           yolo checks
           pip list
+
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
+
       - name: Test HUB training
         shell: python
         env:
@@ -107,6 +110,12 @@ jobs:
         python-version: ["3.11"]
         model: [yolov8n]
     steps:
+
+  
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -174,6 +183,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: "pip" # caching pip dependencies
+
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
+
+
       - name: Install requirements
         shell: bash # for Windows compatibility
         run: |
@@ -214,6 +230,13 @@ jobs:
     runs-on: gpu-latest
     steps:
       - uses: actions/checkout@v4
+
+
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
+          
       - name: Install requirements
         run: pip install -e . pytest-cov
       - name: Check environment
@@ -244,7 +267,12 @@ jobs:
         run: |
           python3.11 -m venv env
           source env/bin/activate
-          echo PATH=$PATH >> $GITHUB_ENV
+          echo PATH=$PATH >> $GITHUB_ENV'
+
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
       - name: Install requirements
         run: |
           python -m pip install --upgrade pip wheel
@@ -286,6 +314,11 @@ jobs:
       run:
         shell: bash -el {0}
     steps:
+
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LSTN }}
+          ci: only
       - uses: conda-incubator/setup-miniconda@v3
         with:
           python-version: ${{ matrix.python-version }}
