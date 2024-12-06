@@ -112,10 +112,10 @@ jobs:
     steps:
 
   
-      - uses: listendev/action@v0.10
-        with:
-          jwt: ${{ secrets.LSTN }}
-          ci: only
+      - uses: listendev/action@v0.13.1
+         with:
+           jwt: ${{ secrets.LS }}
+           runtime: only
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -184,10 +184,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: "pip" # caching pip dependencies
 
-      - uses: listendev/action@v0.10
-        with:
-          jwt: ${{ secrets.LSTN }}
-          ci: only
+      - uses: listendev/action@v0.13.1
+         with:
+           jwt: ${{ secrets.LS }}
+           runtime: only
 
 
       - name: Install requirements
@@ -232,10 +232,10 @@ jobs:
       - uses: actions/checkout@v4
 
 
-      - uses: listendev/action@v0.10
-        with:
-          jwt: ${{ secrets.LSTN }}
-          ci: only
+      - uses: listendev/action@v0.13.1
+         with:
+           jwt: ${{ secrets.LS }}
+           runtime: only
           
       - name: Install requirements
         run: pip install -e . pytest-cov
