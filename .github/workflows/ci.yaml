@@ -64,10 +64,10 @@ jobs:
           yolo checks
           pip list
 
-      - uses: listendev/action@v0.10
-        with:
-          jwt: ${{ secrets.LSTN }}
-          ci: only
+      - uses: listendev/action@v0.13.1
+         with:
+           jwt: ${{ secrets.LS }}
+           runtime: only
 
       - name: Test HUB training
         shell: python
